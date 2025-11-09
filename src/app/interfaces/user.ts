@@ -1,7 +1,9 @@
 export interface User {
-  id: number,
-  name: string,
-  email: string,
-  role: string,
-  status: string
+  id?: number;
+  name: string;
+  email: string;
+  password: string;
+  confirm: string;
+  role: string;
+  status?: boolean;
 }

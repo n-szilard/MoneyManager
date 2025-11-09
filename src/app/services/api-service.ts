@@ -6,8 +6,42 @@ import { ApiResponse } from '../interfaces/apiResponse';
   providedIn: 'root',
 })
 export class ApiService {
-  SERVER = 'http://localhost:3000';
+  SERVER = 'http://localhost:3300';
   constructor() {}
+
+  async registration(table: string, data: any) {
+    try {
+      const response = await axios.post(`${this.SERVER}/${table}/registration`, data);
+      return {
+        status: 200,
+        message: "A regisztráció sikeres!",
+        data: response.data
+      }
+    }
+    catch (error: any) {
+      return {
+        status: 500,
+        message: error.response.data.error
+      }
+    }
+  }
+
+  async login(table: string, data: any) {
+    try {
+      const response = await axios.post(`${this.SERVER}/${table}/login`, data);
+      return {
+        status: 200,
+        message: "A belépés sikeres!",
+        data: response.data
+      }
+    }
+    catch (error: any) {
+      return {
+        status: 500,
+        message: error.response.data.error
+      }
+    }
+  }
 
   // GET all records from table
   async selectAll(table: string): Promise<ApiResponse> {

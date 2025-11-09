@@ -1,0 +1,71 @@
+
+<div class="categories-form-container">
+
+  <section class="header-section">
+    <div class="header-content">
+      <div class="header-icon">
+        <i class="bi bi-tags-fill"></i>
+      </div>
+      <h1 class="page-title">Új Kategória Létrehozása</h1>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="form-container">
+      <div class="form-card">
+        <div class="card-header">
+          <h2>Kategória Adatok</h2>
+          <p>Add meg az új kategória nevét</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="categoryName" class="form-label">
+              <i class="bi bi-tag"></i>
+              Kategória Neve
+            </label>
+            <input
+              type="text"
+              id="categoryName"
+              name="categoryName"
+              class="form-control"
+              [(ngModel)]="categoryName"
+              placeholder="pl. Élelmiszer, Szórakozás, Számla..."
+              maxlength="32"
+              required
+            />
+            <small class="form-text">Maximum 32 karakter</small>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              <span>
+                <i class="bi bi-plus-circle"></i>
+                Kategória Létrehozása
+              </span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="clearForm()"
+            >
+              <i class="bi bi-x-circle"></i>
+              Törlés
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              routerLink="/categorieslist"
+            >
+              <i class="bi bi-arrow-left"></i>
+              Vissza
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

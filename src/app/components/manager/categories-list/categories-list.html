@@ -1,0 +1,52 @@
+<div class="categories-list-container">
+  <section class="header-section">
+    <div class="header-content">
+      <div class="header-icon">
+        <i class="bi bi-list-ul"></i>
+      </div>
+      <h1 class="page-title">Kategóriák Listája</h1>
+      <p class="page-subtitle">Kezeld és szervezd kategóriáidat</p>
+    </div>
+  </section>
+
+  <section class="list-section">
+    <div class="list-container">
+
+      <div class="actions-bar">
+        <div class="stats">
+          <i class="bi bi-tags"></i>
+          <span><strong>{{ categories.length }}</strong> kategória</span>
+        </div>
+        <button class="btn btn-refresh" (click)="refreshList()">
+          <i class="bi bi-arrow-clockwise"></i>
+          Frissítés
+        </button>
+        <button class="btn btn-refresh" routerLink="/categoriesform">
+          <i class="bi bi-plus-circle"></i>
+          Hozzáadás
+        </button>
+      </div>
+
+      <div class="categories-grid">
+        <div *ngFor="let category of categories" class="category-card">
+          <div class="category-icon">
+            <i class="bi bi-tag-fill"></i>
+          </div>
+          <div class="category-content">
+            <h3 class="category-name">{{ category.name }}</h3>
+            <span class="category-id">ID: {{ category.ID }}</span>
+          </div>
+          <div class="category-actions">
+            <button
+              class="btn-delete"
+              (click)="deleteCategory(category.ID)"
+              title="Törlés"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
