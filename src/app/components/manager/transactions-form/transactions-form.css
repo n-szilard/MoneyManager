@@ -60,6 +60,20 @@
   opacity: 0.95;
 }
 
+
+/* Number Input nyilak eltuntetese */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* Form Section */
 .form-section {
   margin-top: -3rem;
@@ -72,6 +86,8 @@
   max-width: 900px;
   margin: 0 auto;
 }
+
+
 
 .form-card {
   background: white;

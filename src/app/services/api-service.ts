@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { ApiResponse } from '../interfaces/apiResponse';
+import {Wallet} from '../interfaces/wallet';
+import {Transaction} from '../interfaces/transaction';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +41,64 @@ export class ApiService {
       return {
         status: 500,
         message: error.response.data.error
+      }
+    }
+  }
+
+  // GET all wallets from user
+  async selectWallets(userId: number): Promise<ApiResponse> {
+    try {
+      const response = await axios.get(`${this.SERVER}/wallets/user/${userId}`);
+      return {
+        status: 200,
+        message: 'Sikeres lekérdezés',
+        data: response.data
+      }
+    }
+    catch (error: any) {
+      return {
+        status: 500,
+        message: "Internal Server Error"
+      }
+    }
+  }
+
+  // GET all transaction from userID
+  async getUserTransactions(userID: number) {
+    try {
+      const response = await axios.get(`${this.SERVER}/transactions/user/${userID}`);
+      return {
+        status: 200,
+        message: 'Sikeres lekérdezés',
+        data: response.data
+      }
+    }
+    catch (error: any) {
+      return {
+        status: 500,
+        message: "Internal Server Error"
+      }
+    }
+  }
+
+  // POST new transaction
+  async postTransaction(transaction: Transaction) {
+    try {
+      const response = await axios.post(`${this.SERVER}/transactions/`, {
+        walletID: transaction.walletID,
+        amount: transaction.amount,
+        categoryID: transaction.categoryID,
+        type: transaction.type
+      });
+      return {
+        status: 200,
+        message: 'Rekord felveve',
+        data: response.data
+      }
+    } catch (error: any) {
+      return {
+        status: 500,
+        message: "Internal Server Error"
       }
     }
   }

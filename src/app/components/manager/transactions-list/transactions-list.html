@@ -1,0 +1,54 @@
+<div class="categories-list-container">
+  <section class="header-section">
+    <div class="header-content">
+      <div class="header-icon">
+        <i class="bi bi-arrow-left-right"></i>
+      </div>
+      <h1 class="page-title">Tranzakciók Listája</h1>
+      <p class="page-subtitle">Kezeld és szervezd tranzakcióid</p>
+    </div>
+  </section>
+
+  <section class="list-section">
+    <div class="list-container">
+
+      <div class="actions-bar">
+        <div class="stats">
+          <i class="bi bi-arrow-left-right"></i>
+          <span><strong>{{ transactions.length }}</strong> tranzakció</span>
+        </div>
+        <button class="btn btn-refresh" (click)="refreshList()">
+          <i class="bi bi-arrow-clockwise"></i>
+          Frissítés
+        </button>
+        <button class="btn btn-refresh" routerLink="/transactionsform">
+          <i class="bi bi-plus-circle"></i>
+          Hozzáadás
+        </button>
+      </div>
+
+      <div class="categories-grid">
+        <div *ngFor="let transaction of transactions" class="category-card">
+          <div class="category-icon">
+            <i class="bi bi-arrow-left-right"></i>
+          </div>
+          <div class="category-content">
+            <h3 class="category-name">{{transaction.type}} - {{transaction.amount}}</h3>
+            <span class="category-id">Tárca: {{transaction.walletName}}</span>
+          </div>
+          <div class="category-actions">
+            <button
+              class="btn-delete"
+              (click)="deleteTransaction(transaction.ID)"
+              title="Törlés"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <h3 *ngIf="transactions.length == 0" style="color: #333333">A felhasználónak nincs tranzakciója!</h3>
+      </div>
+    </div>
+  </section>
+</div>

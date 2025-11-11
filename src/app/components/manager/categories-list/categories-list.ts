@@ -38,7 +38,8 @@ export class CategoriesList implements OnInit {
         this.messageService.show('success', 'Siker', 'A kategória sikeresen törölve!');
         this.loadCategories();
       } else {
-        this.messageService.show('danger', 'Hiba', res.message || 'Nem sikerült törölni a kategóriát');
+        this.messageService.show('danger', 'Hiba', 'Nem sikerült törölni a kategóriát, valószínűleg használatban van');
+        console.log(res);
       }
     })
   }

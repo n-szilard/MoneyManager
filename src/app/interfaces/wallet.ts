@@ -1,6 +1,6 @@
 export interface Wallet {
-  id: number,
-  balance: number,
+  ID: number,
+  userID: number
   name: string,
-  userId: number
+  balance: number,
 }

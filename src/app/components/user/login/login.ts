@@ -43,7 +43,7 @@ export class LoginComponent {
       }
 
       this.auth.login(JSON.stringify(res.data));
-      this.router.navigate(['/wallets']);
+      this.router.navigate(['/walletslist']);
     });
   }
 }

@@ -1,7 +1,9 @@
 export interface Transaction {
-  id: number,
+  ID: number,
   amount: number,
-  categoryId: number,
+  categoryID: number,
   type: string,
-  walletId: number
+  walletID: number,
+  categoryName?: string,
+  walletName?: string,
 }

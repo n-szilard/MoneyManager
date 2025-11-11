@@ -35,28 +35,20 @@ export class Navbar implements OnInit {
 
   setupMenu(isLoggedIn: boolean){
     this.navItems = [
-      {
-        name: 'Otthon',
-        path: 'home',
-        icon: 'bi-house'
-      },
+
 
       ...(isLoggedIn) ? [
         ...(this.isAdmin) ? [
-          {
-            name: 'Felhasználók kezelése',
-            path: 'users',
-            icon: 'bi-people'
-          },
-          {
-            name: 'Admin Statisztika',
-            path: 'adminstats',
-            icon: 'bi-graph-up-arrow'
-          }
+          // esetleg ide valami admin funkciok, ha mar van roleja a usernek
         ] : [],
         {
           name: 'Pénztárcák',
-          path: 'wallets',
+          path: 'walletslist',
+          icon: 'bi-wallet2'
+        },
+        {
+          name: 'Tranzakciók',
+          path: 'transactionslist',
           icon: 'bi-wallet2'
         },
         {
@@ -66,7 +58,7 @@ export class Navbar implements OnInit {
         },
         {
           name: 'Statisztika',
-          path: 'stats',
+          path: 'statistics',
           icon: 'bi-graph-up-arrow'
         },
         {
@@ -80,6 +72,11 @@ export class Navbar implements OnInit {
           icon: 'bi-box-arrow-left'
         },
       ] : [
+        {
+          name: 'Otthon',
+          path: 'home',
+          icon: 'bi-house'
+        },
         {
           name: 'Regisztráció',
           path: 'registration',
